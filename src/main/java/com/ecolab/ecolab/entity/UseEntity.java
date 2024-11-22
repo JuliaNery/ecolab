@@ -1,15 +1,12 @@
 package com.ecolab.ecolab.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -24,5 +21,7 @@ public class UseEntity {
     private Long id;
     private LocalDateTime on;
     private LocalDateTime off;
+    @ManyToOne
     private UserDeviceEntity userDevice;
+    private BigDecimal valueSpent;
 }
